@@ -894,9 +894,12 @@
 				"_artifactsLocationSasToken": {
 				   "value": "[parameters('_artifactsLocationSasToken')]"
 				},
-				"identity":{
-					"value": "[reference(variables('name_uamiForPostDeploymentScript'),'2024-03-01').outputs.uamidForPostDeployment.value]"
-				}
+            "identity": {
+              "type": "UserAssigned",
+              "userAssignedIdentities": {
+                "[reference(variables('name_uamiForPostDeploymentScript'),'2024-03-01').outputs.uamidForPostDeployment.value]": {}
+              }
+            }
 			}
 		}				
 	  },	       
