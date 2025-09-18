@@ -897,7 +897,7 @@
             "identity": {
               "type": "UserAssigned",
               "userAssignedIdentities": {
-                "[reference(variables('name_uamiForPostDeploymentScript'),'2024-03-01').outputs.uamidForPostDeployment.value]": {}
+                "[reference(resourceId('Microsoft.Resources/deployments',variables('name_uamiForPostDeploymentScript'),'2024-03-01'))).outputs.uamidForPostDeployment.value]": {}
               }
             }
 			}
