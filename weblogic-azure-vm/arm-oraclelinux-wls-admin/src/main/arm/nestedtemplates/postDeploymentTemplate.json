@@ -63,9 +63,6 @@
 		    "apiVersion": "2023-08-01",
 			"tags": "[parameters('tagsByResource')['Microsoft.Resources/deploymentScripts']]",
 			"name": "[concat('postdeployscript-', parameters('_globalResourceNameSuffix'))]",
-			"dependsOn": [
-				"[resourceId('Microsoft.Authorization/roleAssignments', variables('name_roleAssignmentName'))]"
-			 ],
 			"kind": "AzureCLI",
 			"location": "[parameters('location')]",
 			"identity": "[parameters('identity')]",
