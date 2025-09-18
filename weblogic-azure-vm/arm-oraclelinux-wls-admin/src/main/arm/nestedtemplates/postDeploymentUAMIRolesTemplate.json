@@ -108,7 +108,7 @@
 	"outputs": {
 		"uamidForPostDeployment": {
 		         "type": "object",
-		         "value": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('name_postDeploymentScriptUserDefinedManagedIdentity'))]"
+		         "value": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('name_postDeploymentScriptUserDefinedManagedIdentity')))]"
 		 }
 	}
 }
