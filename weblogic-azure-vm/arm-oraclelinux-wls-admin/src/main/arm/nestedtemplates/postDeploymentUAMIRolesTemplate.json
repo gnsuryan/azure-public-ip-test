@@ -24,7 +24,7 @@
 		      "type": "object",
 		      "defaultValue": {},
 		      "metadata": {
-		         "description": "${label.tagsLabel}"
+		         "description": "Tags for the resources."
 		      }
 		   },
 		   "roleAssignmentNameSeed": {
@@ -44,14 +44,14 @@
 	"resources": [
 		{		
 		    "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-		    "apiVersion": "${azure.apiVersionForIdentity}",
-		    "tags": "[parameters('tagsByResource')['${identifier.userAssignedIdentities}']]",
+		    "apiVersion": "2023-01-31",
+		    "tags": "[parameters('tagsByResource')['Microsoft.ManagedIdentity/userAssignedIdentities']]",
 		    "name": "[variables('name_postDeploymentScriptUserDefinedManagedIdentity')]",
 		    "location": "[parameters('location')]"
 		},
 		{
 			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "${azure.apiVersionForDeployment}",
+			"apiVersion": "2023-07-01",
 			"name": "[variables('name_postDeploymentScriptRoleAssignment')]",
 			"scope": "[concat('/subscriptions/', subscription().subscriptionId)]",
 			"dependsOn": [
