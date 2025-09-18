@@ -894,11 +894,8 @@
 				"_artifactsLocationSasToken": {
 				   "value": "[parameters('_artifactsLocationSasToken')]"
 				},
-            "identity": {
-              "type": "UserAssigned",
-              "userAssignedIdentities": {
-                "[reference(resourceId('Microsoft.Resources/deployments',variables('name_uamiForPostDeploymentScript')),'2024-03-01').outputs.uamidForPostDeployment.value]": {}
-              }
+            "userAssignedIdentityResourceId":{
+               "value": "[reference(variables('name_uamiForPostDeploymentScript'),'${azure.apiVersionForDeployment}').outputs.uamidForPostDeployment.value]"
             }
 			}
 		}				
