@@ -24,7 +24,7 @@
 		      "type": "object",
 		      "defaultValue": {},
 		      "metadata": {
-		         "description": "${label.tagsLabel}"
+		         "description": "Tags for the resources."
 		      }
 		   },
 		   "roleAssignmentNameSeed": {
@@ -45,7 +45,7 @@
 		{		
 		    "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
 		    "apiVersion": "2024-11-30",
-		    "tags": "[parameters('tagsByResource')['${identifier.userAssignedIdentities}']]",
+		    "tags": "[parameters('tagsByResource')['Microsoft.ManagedIdentity/userAssignedIdentities']]",
 		    "name": "[variables('name_postDeploymentScriptUserDefinedManagedIdentity')]",
 		    "location": "[parameters('location')]"
 		},

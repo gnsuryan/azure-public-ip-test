@@ -88,7 +88,7 @@
             "type": "object",
             "defaultValue": {},
             "metadata": {
-                "description": "${label.tagsLabel}"
+                "description": "Tags for the resources."
             }
         },
         "wlsDomainName": {
@@ -120,7 +120,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "pswlessDbTemplate",
             "condition": "[parameters('enablePswlessConnection')]",
             "properties": {
@@ -178,7 +178,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "upgradeMySQLJdbcDriverTemplate",
             "condition": "[and(not(parameters('enablePswlessConnection')), equals(parameters('databaseType'),'mysql'))]",
             "properties": {
@@ -225,7 +225,7 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
             "name": "passwordDatasourceDeployment",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "condition": "[not(parameters('enablePswlessConnection'))]",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/deployments', 'upgradeMySQLJdbcDriverTemplate')]"

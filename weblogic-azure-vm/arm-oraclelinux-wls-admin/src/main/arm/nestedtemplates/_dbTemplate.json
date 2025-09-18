@@ -85,7 +85,7 @@
             "type": "object",
             "defaultValue": {},
             "metadata": {
-                "description": "${label.tagsLabel}"
+                "description": "Tags for the resources."
             }
         },
         "wlsPassword": {
@@ -114,7 +114,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "pid-f5215b75-9465-51b6-9b1d-69bc41e3e6f4",
             "properties": {
                 "mode": "Incremental",
@@ -131,7 +131,7 @@
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(parameters('adminVMName'),'/newuserscript')]",
             "location": "[parameters('location')]",
-            "tags": "[parameters('tagsByResource')['${identifier.virtualMachinesExtensions}']]",
+            "tags": "[parameters('tagsByResource')['Virtual machine extension']]",
             "properties": {
                 "publisher": "Microsoft.Azure.Extensions",
                 "type": "CustomScript",
@@ -153,7 +153,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "pid-4a2ba562-fbca-552d-9f02-51e88844a911",
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines/extensions', parameters('adminVMName'), 'newuserscript')]"
@@ -171,7 +171,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "pid-692b2d84-72f5-5992-a15d-0d5bcfef040d",
             "condition": "[if(contains(parameters('databaseType'), 'oracle'), bool('true'), bool('false'))]",
             "dependsOn": [
@@ -190,7 +190,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "pid-935df06e-a5d5-5bf1-af66-4c1eb71dac7a",
             "condition": "[if(contains(parameters('databaseType'), 'postgresql'), bool('true'), bool('false'))]",
             "dependsOn": [
@@ -209,7 +209,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "pid-3569588c-b89d-5567-84ee-a2c633c7204c",
             "condition": "[if(contains(parameters('databaseType'), 'sqlserver'), bool('true'), bool('false'))]",
             "dependsOn": [
@@ -228,8 +228,8 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
-            "name": "${database.mysql}",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
+            "name": "41c353ae-6f7b-442f-b903-996cb42c1bbe",
             "condition": "[if(contains(parameters('databaseType'), 'mysql'), bool('true'), bool('false'))]",
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines/extensions', parameters('adminVMName'), 'newuserscript')]"

@@ -74,7 +74,7 @@
             "type": "object",
             "defaultValue": {},
             "metadata": {
-                "description": "${label.tagsLabel}"
+                "description": "Tags for the resources."
             }
         },
         "wlsDomainName": {
@@ -99,7 +99,7 @@
     },
     "variables": {
         "const_connectionString": "[if(and(equals(parameters('databaseType'),'sqlserver'), equals(last(parameters('dsConnectionURL')),';')), take(parameters('dsConnectionURL'), add(length(parameters('dsConnectionURL')),-1)),parameters('dsConnectionURL'))]",
-        "const_identityAPIVersion": "${azure.apiVersionForIdentity}",
+        "const_identityAPIVersion": "2023-01-31",
         "const_msiDefaultUser": "msiUser",
         "name_appendIdentityTemplate": "_appendUserManagedIdentity.json",
         "name_installJdbcLibsTemplate": "_installJdbcLibsTemplate.json",
@@ -133,8 +133,8 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
-            "name": "${admin.pswless.database.start}",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
+            "name": "53e099bf-8148-5463-a51d-0272520bac60",
             "properties": {
                 "mode": "Incremental",
                 "template": {
@@ -147,7 +147,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "assignDbIdentityToAdminVM",
             "properties": {
                 "mode": "Incremental",
@@ -174,7 +174,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "installJdbcLibsTemplate",
             "condition": "[or(equals(parameters('databaseType'),'mysql'), equals(parameters('databaseType'),'postgresql'))]",
             "dependsOn": [
@@ -223,7 +223,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "passwordlessDatasourceDeployment",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/deployments', 'installJdbcLibsTemplate')]"
@@ -280,8 +280,8 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2024-03-01",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
-            "name": "${admin.pswless.database.end}",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
+            "name": "89d5d2a9-16b8-5b3d-b5f7-1fb8a6cfdfc5",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/deployments', 'passwordlessDatasourceDeployment')]"
             ],

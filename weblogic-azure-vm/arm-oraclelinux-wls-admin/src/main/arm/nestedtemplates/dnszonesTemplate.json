@@ -87,7 +87,7 @@
             "type": "object",
             "defaultValue": {},
             "metadata": {
-                "description": "${label.tagsLabel}"
+                "description": "Tags for the resources."
             }
         },
         "ttl": {
@@ -113,9 +113,9 @@
     "resources": [
         {
             "apiVersion": "2024-03-01",
-            "name": "${cluster.dns.start}",
+            "name": "c40d7aa8-9fe7-51c6-86de-27e1b1678735",
             "type": "Microsoft.Resources/deployments",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "properties": {
                 "mode": "Incremental",
                 "template": {
@@ -128,7 +128,7 @@
         {
             "apiVersion": "2024-03-01",
             "type": "Microsoft.Resources/deployments",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "createDNSZone",
             "condition": "[not(parameters('hasDNSZones'))]",
             "properties": {
@@ -168,7 +168,7 @@
         {
             "apiVersion": "2024-03-01",
             "type": "Microsoft.Resources/deployments",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "name": "updateDNSZone",
             "condition": "[parameters('hasDNSZones')]",
             "properties": {
@@ -222,9 +222,9 @@
         },
         {
             "apiVersion": "2024-03-01",
-            "name": "${cluster.dns.end}",
+            "name": "022d99e3-8ba3-5822-b6d5-bcec64518286",
             "type": "Microsoft.Resources/deployments",
-            "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
+            "tags": "[parameters('tagsByResource')['Microsoft resources deployment']]",
             "properties": {
                 "mode": "Incremental",
                 "template": {
