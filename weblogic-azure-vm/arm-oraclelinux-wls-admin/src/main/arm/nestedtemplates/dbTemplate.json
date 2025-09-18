@@ -119,7 +119,7 @@
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "${azure.apiVersionForDeployment}",
+            "apiVersion": "2024-03-01",
             "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
             "name": "pswlessDbTemplate",
             "condition": "[parameters('enablePswlessConnection')]",
@@ -177,7 +177,7 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "${azure.apiVersionForDeployment}",
+            "apiVersion": "2024-03-01",
             "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
             "name": "upgradeMySQLJdbcDriverTemplate",
             "condition": "[and(not(parameters('enablePswlessConnection')), equals(parameters('databaseType'),'mysql'))]",
@@ -223,7 +223,7 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "${azure.apiVersionForDeployment}",
+            "apiVersion": "2024-03-01",
             "name": "passwordDatasourceDeployment",
             "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
             "condition": "[not(parameters('enablePswlessConnection'))]",

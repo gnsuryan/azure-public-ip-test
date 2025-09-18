@@ -112,7 +112,7 @@
     },
     "resources": [
         {
-            "apiVersion": "${azure.apiVersionForDeployment}",
+            "apiVersion": "2024-03-01",
             "name": "${cluster.dns.start}",
             "type": "Microsoft.Resources/deployments",
             "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
@@ -126,7 +126,7 @@
             }
         },
         {
-            "apiVersion": "${azure.apiVersionForDeployment}",
+            "apiVersion": "2024-03-01",
             "type": "Microsoft.Resources/deployments",
             "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
             "name": "createDNSZone",
@@ -166,7 +166,7 @@
             }
         },
         {
-            "apiVersion": "${azure.apiVersionForDeployment}",
+            "apiVersion": "2024-03-01",
             "type": "Microsoft.Resources/deployments",
             "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
             "name": "updateDNSZone",
@@ -221,7 +221,7 @@
             }
         },
         {
-            "apiVersion": "${azure.apiVersionForDeployment}",
+            "apiVersion": "2024-03-01",
             "name": "${cluster.dns.end}",
             "type": "Microsoft.Resources/deployments",
             "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
@@ -239,7 +239,7 @@
         "dnsZoneNameServers": {
             "type": "array",
             "condition": "[not(parameters('hasDNSZones'))]",
-            "value": "[reference('createDNSZone', '${azure.apiVersionForDeployment}').outputs.dnsZoneNameServers.value]"
+            "value": "[reference('createDNSZone', '2024-03-01').outputs.dnsZoneNameServers.value]"
         }
     }
 }

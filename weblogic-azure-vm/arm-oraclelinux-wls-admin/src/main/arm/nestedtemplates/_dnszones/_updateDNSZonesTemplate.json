@@ -120,7 +120,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "uamiDeployment",
-            "apiVersion": "${azure.apiVersionForDeployment}",
+            "apiVersion": "2024-03-01",
             "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
             "properties": {
                 "mode": "Incremental",

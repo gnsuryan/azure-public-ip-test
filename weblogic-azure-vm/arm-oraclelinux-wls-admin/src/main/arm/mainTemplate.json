@@ -429,9 +429,9 @@
    "resources": [
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "tags": "[variables('obj_tagsByResources')['${identifier.resourcesDeployment}']]",
-         "name": "${admin.start}",
+         "name": "pid-07bf10d5-da4e-5113-b1c2-b8d802bda651",
          "properties": {
             "mode": "Incremental",
             "template": {
@@ -446,7 +446,7 @@
          "name": "adminLinkedTemplate",
          "type": "Microsoft.Resources/deployments",
          "tags": "[variables('obj_tagsByResources')['${identifier.resourcesDeployment}']]",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "condition": "[not(parameters('enableCustomSSL'))]",
          "properties": {
             "mode": "Incremental",
@@ -548,7 +548,7 @@
       {
          "name": "adminCustomSSLLinkedTemplate",
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "tags": "[variables('obj_tagsByResources')['${identifier.resourcesDeployment}']]",
          "condition": "[parameters('enableCustomSSL')]",
          "properties": {
@@ -677,7 +677,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "tags": "[variables('obj_tagsByResources')['${identifier.resourcesDeployment}']]",
          "condition": "[equals(parameters('virtualNetworkNewOrExisting'), 'new')]",
          "name": "networkSecurityLinkedTemplate",
@@ -703,7 +703,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "dnszonesLinkedTemplate",
          "tags": "[variables('obj_tagsByResources')['${identifier.resourcesDeployment}']]",
          "condition": "[and(parameters('enableCustomDNS'), equals(parameters('virtualNetworkNewOrExisting'), 'new'))]",
@@ -745,7 +745,7 @@
                },
                "targetResources": {
                   "value": [
-                     "[reference(variables('name_adminLinkedTemplateDeployment'), '${azure.apiVersionForDeployment}').outputs._adminPublicIPId.value]"
+                     "[reference(variables('name_adminLinkedTemplateDeployment'), '2024-03-01').outputs._adminPublicIPId.value]"
                   ]
                },
                "tagsByResource": {
@@ -761,7 +761,7 @@
          ],
          "type": "Microsoft.Resources/deployments",
          "tags": "[variables('obj_tagsByResources')['${identifier.resourcesDeployment}']]",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "condition": "[parameters('enableDB')]",
          "properties": {
             "mode": "Incremental",
@@ -824,7 +824,7 @@
       },
 	  {
 	  	"type": "Microsoft.Resources/deployments",
-	  	"apiVersion": "${azure.apiVersionForDeployment}",
+	  	"apiVersion": "2024-03-01",
 	  	"name": "[variables('name_uamiForPostDeploymentScript')]",
 		"condition": "[equals(parameters('virtualNetworkNewOrExisting'), 'existing')]",
 	  	"tags": "[variables('obj_tagsByResources')['${identifier.resourcesDeployment}']]",
@@ -858,7 +858,7 @@
 	  },
 	  {
 	  	"type": "Microsoft.Resources/deployments",
-	  	"apiVersion": "${azure.apiVersionForDeployment}",
+	  	"apiVersion": "2024-03-01",
 	  	"name": "postDeplyment",
 		"condition": "[equals(parameters('virtualNetworkNewOrExisting'), 'existing')]",
 	  	"tags": "[variables('obj_tagsByResources')['${identifier.resourcesDeployment}']]",
@@ -895,16 +895,16 @@
 				   "value": "[parameters('_artifactsLocationSasToken')]"
 				},
 				"identity":{
-					"value": "[reference(variables('name_uamiForPostDeploymentScript'),'${azure.apiVersionForDeployment}').outputs.uamidForPostDeployment.value]"
+					"value": "[reference(variables('name_uamiForPostDeploymentScript'),'2024-03-01').outputs.uamidForPostDeployment.value]"
 				}
 			}
 		}				
 	  },	       
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "tags": "[variables('obj_tagsByResources')['${identifier.resourcesDeployment}']]",
-         "name": "${admin.end}",
+         "name": "pid-40a6f402-31ee-536a-a006-729105f55003",
          "dependsOn": [
             "[resourceId('Microsoft.Resources/deployments', variables('name_adminLinkedTemplateDeployment'))]",
             "[resourceId('Microsoft.Resources/deployments', 'networkSecurityLinkedTemplate')]",
@@ -930,36 +930,36 @@
       },
       "hostname": {
          "type": "string",
-         "value": "[reference(variables('name_adminLinkedTemplateDeployment'),'${azure.apiVersionForDeployment}').outputs.hostname.value]"
+         "value": "[reference(variables('name_adminLinkedTemplateDeployment'),'2024-03-01').outputs.hostname.value]"
       },
       "sshCommand": {
          "type": "string",
-         "value": "[concat('ssh ', parameters('adminUsername'), '@', reference(variables('name_adminLinkedTemplateDeployment'),'${azure.apiVersionForDeployment}').outputs.hostname.value)]"
+         "value": "[concat('ssh ', parameters('adminUsername'), '@', reference(variables('name_adminLinkedTemplateDeployment'),'2024-03-01').outputs.hostname.value)]"
       },
       "wlsDomainLocation": {
          "type": "string",
-         "value": "[reference(variables('name_adminLinkedTemplateDeployment'),'${azure.apiVersionForDeployment}').outputs.wlsDomainLocation.value]"
+         "value": "[reference(variables('name_adminLinkedTemplateDeployment'),'2024-03-01').outputs.wlsDomainLocation.value]"
       },
       "adminConsoleURL": {
          "type": "string",
-         "value": "[if(parameters('enableCustomDNS'), uri(format('http://{0}.{1}:7001/console/',parameters('dnszoneAdminConsoleLabel'),parameters('dnszoneName')), ''),reference(variables('name_adminLinkedTemplateDeployment'),'${azure.apiVersionForDeployment}').outputs.adminConsoleURL.value)]"
+         "value": "[if(parameters('enableCustomDNS'), uri(format('http://{0}.{1}:7001/console/',parameters('dnszoneAdminConsoleLabel'),parameters('dnszoneName')), ''),reference(variables('name_adminLinkedTemplateDeployment'),'2024-03-01').outputs.adminConsoleURL.value)]"
       },
       "adminConsoleSecureURL": {
          "type": "string",
-         "value": "[if(parameters('enableCustomDNS'), uri(format('https://{0}.{1}:7002/console/',parameters('dnszoneAdminConsoleLabel'),parameters('dnszoneName')), ''),reference(variables('name_adminLinkedTemplateDeployment'),'${azure.apiVersionForDeployment}').outputs.adminConsoleSecureURL.value)]"
+         "value": "[if(parameters('enableCustomDNS'), uri(format('https://{0}.{1}:7002/console/',parameters('dnszoneAdminConsoleLabel'),parameters('dnszoneName')), ''),reference(variables('name_adminLinkedTemplateDeployment'),'2024-03-01').outputs.adminConsoleSecureURL.value)]"
       },
       "adminRemoteConsoleURL": {
          "type": "string",
-         "value": "[if(parameters('enableCustomDNS'), uri(format('http://{0}.{1}:7001',parameters('dnszoneAdminConsoleLabel'),parameters('dnszoneName')), ''),reference(variables('name_adminLinkedTemplateDeployment'),'${azure.apiVersionForDeployment}').outputs.adminRemoteConsoleURL.value)]"
+         "value": "[if(parameters('enableCustomDNS'), uri(format('http://{0}.{1}:7001',parameters('dnszoneAdminConsoleLabel'),parameters('dnszoneName')), ''),reference(variables('name_adminLinkedTemplateDeployment'),'2024-03-01').outputs.adminRemoteConsoleURL.value)]"
       },
       "adminRemoteConsoleSecureURL": {
          "type": "string",
-         "value": "[if(parameters('enableCustomDNS'), uri(format('https://{0}.{1}:7002',parameters('dnszoneAdminConsoleLabel'),parameters('dnszoneName')), ''),reference(variables('name_adminLinkedTemplateDeployment'),'${azure.apiVersionForDeployment}').outputs.adminRemoteConsoleSecureURL.value)]"
+         "value": "[if(parameters('enableCustomDNS'), uri(format('https://{0}.{1}:7002',parameters('dnszoneAdminConsoleLabel'),parameters('dnszoneName')), ''),reference(variables('name_adminLinkedTemplateDeployment'),'2024-03-01').outputs.adminRemoteConsoleSecureURL.value)]"
       },      
       "dnsZoneNameServers": {
          "type": "array",
          "condition": "[and(parameters('enableCustomDNS'), not(parameters('hasDNSZones')))]",
-         "value": "[reference('dnszonesLinkedTemplate','${azure.apiVersionForDeployment}').outputs.dnsZoneNameServers.value]"
+         "value": "[reference('dnszonesLinkedTemplate','2024-03-01').outputs.dnsZoneNameServers.value]"
       }
    }
 }

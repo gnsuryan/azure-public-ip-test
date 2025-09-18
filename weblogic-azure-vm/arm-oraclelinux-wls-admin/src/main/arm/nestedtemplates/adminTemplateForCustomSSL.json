@@ -334,8 +334,8 @@
    },
    "resources": [
       {
-         "apiVersion": "${azure.apiVersionForDeployment}",
-         "name": "${admin.admin.start}",
+         "apiVersion": "2024-03-01",
+         "name": "pid-88e1c590-988c-51bb-bbd3-4929629bfb9c",
          "type": "Microsoft.Resources/deployments",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "properties": {
@@ -349,7 +349,7 @@
          }
       },
       {
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${admin.ssl.start}",
          "type": "Microsoft.Resources/deployments",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
@@ -510,7 +510,7 @@
 	     }
 	  },	  
       {
-         "apiVersion": "${azure.apiVersionForVirtualNetworks}",
+         "apiVersion": "2021-08-01",
          "type": "Microsoft.Network/virtualNetworks",
          "tags": "[parameters('tagsByResource')['${identifier.virtualNetworks}']]",
          "condition": "[equals(parameters('virtualNetworkNewOrExisting'), 'new')]",
@@ -596,7 +596,7 @@
          }
       },
       {
-         "apiVersion": "${azure.apiVersionForVirtualMachines}",
+         "apiVersion": "2021-11-01",
          "type": "Microsoft.Compute/virtualMachines",
          "tags": "[parameters('tagsByResource')['${identifier.virtualMachines}']]",
          "name": "[parameters('adminVMName')]",
@@ -651,7 +651,7 @@
          }
       },
       {
-         "apiVersion": "${azure.apiVersionForVirtualMachines}",
+         "apiVersion": "2021-11-01",
          "type": "Microsoft.Compute/virtualMachines/extensions",
          "tags": "[parameters('tagsByResource')['${identifier.virtualMachinesExtensions}']]",
          "name": "[concat(parameters('adminVMName'),'/newuserscript')]",
@@ -680,7 +680,7 @@
          }
       },
       {
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${admin.ssl.end}",
          "type": "Microsoft.Resources/deployments",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
@@ -698,7 +698,7 @@
          }
       },
       {
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${admin.admin.end}",
          "type": "Microsoft.Resources/deployments",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
@@ -717,7 +717,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141200-jdk21-ol94}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141200-jdk21-ol94'), bool('true'), bool('false'))]",
@@ -736,7 +736,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141200-jdk21-ol810}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141200-jdk21-ol810'), bool('true'), bool('false'))]",
@@ -755,7 +755,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141200-jdk17-ol94}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141200-jdk17-ol94'), bool('true'), bool('false'))]",
@@ -774,7 +774,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141200-jdk17-ol810}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141200-jdk17-ol810'), bool('true'), bool('false'))]",
@@ -793,7 +793,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141100-jdk11-ol91}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141100-jdk11-ol91'), bool('true'), bool('false'))]",
@@ -812,7 +812,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141100-jdk11-ol87}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141100-jdk11-ol87'), bool('true'), bool('false'))]",
@@ -831,7 +831,7 @@
       },	
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141100-jdk8-ol91}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141100-jdk8-ol91'), bool('true'), bool('false'))]",
@@ -850,7 +850,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141100-jdk8-ol87}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141100-jdk8-ol87'), bool('true'), bool('false'))]",
@@ -869,7 +869,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-122140-jdk8-ol91}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-122140-jdk8-ol91'), bool('true'), bool('false'))]",
@@ -888,7 +888,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-122140-jdk8-ol87}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-122140-jdk8-ol87'), bool('true'), bool('false'))]",
@@ -907,7 +907,7 @@
       },      
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141100-jdk11-rhel87}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141100-jdk11-rhel87'), bool('true'), bool('false'))]",
@@ -926,7 +926,7 @@
       },      
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-141100-jdk8-rhel87}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-141100-jdk8-rhel87'), bool('true'), bool('false'))]",
@@ -945,7 +945,7 @@
       },
       {
          "type": "Microsoft.Resources/deployments",
-         "apiVersion": "${azure.apiVersionForDeployment}",
+         "apiVersion": "2024-03-01",
          "name": "${from.owls-122140-jdk8-rhel87}",
          "tags": "[parameters('tagsByResource')['${identifier.resourcesDeployment}']]",
          "condition": "[if(contains(variables('name_linuxImageOfferSKU'), 'owls-122140-jdk8-rhel87'), bool('true'), bool('false'))]",

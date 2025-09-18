@@ -44,14 +44,14 @@
 	"resources": [
 		{		
 		    "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-		    "apiVersion": "${azure.apiVersionForIdentity}",
+		    "apiVersion": "2024-11-30",
 		    "tags": "[parameters('tagsByResource')['${identifier.userAssignedIdentities}']]",
 		    "name": "[variables('name_postDeploymentScriptUserDefinedManagedIdentity')]",
 		    "location": "[parameters('location')]"
 		},
 		{
 			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "${azure.apiVersionForDeployment}",
+			"apiVersion": "2024-03-01",
 			"name": "[variables('name_postDeploymentScriptRoleAssignment')]",
 			"scope": "[concat('/subscriptions/', subscription().subscriptionId)]",
 			"dependsOn": [

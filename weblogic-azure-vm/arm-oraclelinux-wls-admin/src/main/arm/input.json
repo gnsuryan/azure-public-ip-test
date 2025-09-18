@@ -1,0 +1,67 @@
+{
+ "_artifactsLocation": {
+   "value" : "https://raw.githubusercontent.com/gnsuryan/azure-public-ip-test/refs/heads/main/weblogic-azure-vm/arm-oraclelinux-wls-admin/src/main/arm/"
+ },
+  "Location": {
+    "value": "eastus"
+  },
+  "adminPasswordOrKey": {
+    "value": "Gumby12340987"
+  },
+  "adminUsername": {
+    "value": "weblogic"
+  },
+  "authenticationType": {
+    "value": "password"
+  },
+  "addressPrefixes": {
+    "value": [
+      "10.0.0.0/16"
+    ]
+  },
+  "enableDB": {
+    "value": false
+  },
+  "enableCustomDNS": {
+    "value": false
+  },
+  "enablePswlessConnection": {
+    "value": false
+  },
+  "hasDNSZones": {
+    "value": false
+  },
+  "skuUrnVersion": {
+    "value": "owls-141200-jdk21-ol94;Oracle:weblogic-141200-jdk21-ol94:owls-141200-jdk21-ol94;latest"
+  },
+  "vmSize": {
+    "value": "Standard_B1ms"
+  },
+  "wlsPassword": {
+    "value": "Gumby12340987"
+  },
+  "wlsUserName": {
+    "value": "weblogic"
+  },
+  "enableCustomSSL": {
+    "value": false
+  },
+  "subnetName": {
+    "value": "default"
+  },
+  "subnetPrefix": {
+    "value": "10.0.0.0/24"
+  },
+  "tagsByResource": {
+    "value": {}
+  },
+  "virtualNetworkName": {
+    "value": "guruVNET"
+  },
+  "virtualNetworkResourceGroupName": {
+    "value": "guru-test"
+  },
+  "virtualNetworkNewOrExisting": {
+    "value": "existing"
+  }
+}
