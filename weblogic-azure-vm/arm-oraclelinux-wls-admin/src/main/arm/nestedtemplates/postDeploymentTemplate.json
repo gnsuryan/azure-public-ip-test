@@ -47,7 +47,7 @@
 		   }
 		},
 		"identity":{
-			"type": "object",
+			"type": "string",
 			"metadata": { 
 				"Description": "UserAssigned Identity"
 			}
